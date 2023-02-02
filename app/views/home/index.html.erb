@@ -1,0 +1,36 @@
+<h5>   home index </h5>
+<button type="button" onclick="ScanQr()">Scanner QR code</button>
+
+<hr>    
+
+<span> Résultat du scan </span>
+<span id="qr-result" class="text-success"> </span>
+
+<hr>    
+
+<span> Index produit trouvé </span>
+<span id="qr-result-index"> </span>
+
+<script type="module">
+   
+    import QRScanner from '@js-soft/qr-code-scanner';
+
+    window.ScanQr=()=>{
+        QRScanner.initiate({
+            onResult: (result) => { 
+                console.log(result); 
+
+                let result2 = result.split('produits/')[1]; // supprimer avant et produits/
+                let result3 = result2.split('?')[0]; // supprimer ? et apres
+                console.log(result3); // index produit seulement 
+
+                document.getElementById("qr-result").innerHTML = result;
+                document.getElementById("qr-result-index").innerHTML = result3;
+              
+            },
+
+            timeout: 10000,
+        }); 
+    }
+  
+</script>
