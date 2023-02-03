@@ -11,6 +11,14 @@
 <span> Index produit trouvé </span>
 <span id="qr-result-index"> </span>
 
+
+
+<hr> test input index
+<span> Index produit trouvé input </span>
+
+
+
+
 <script type="module">
    
     import QRScanner from '@js-soft/qr-code-scanner';
@@ -26,6 +34,8 @@
 
                 document.getElementById("qr-result").innerHTML = result;
                 document.getElementById("qr-result-index").innerHTML = result3;
+                document.getElementById("qr-result-input").value = result3;
+             
               
             },
 
@@ -34,3 +44,19 @@
     }
   
 </script>
+
+
+
+<div data-controller="scanqr">
+  <input id="qr-result-input" data-scanqr-target="name" type="text">
+
+  <button data-action="click->scanqr#greet">
+    Greet
+  </button>
+
+  <span data-hello-target="output">
+  </span>
+</div>
+
+<hr>
+
