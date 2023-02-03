@@ -6,7 +6,13 @@
 <span> Index produit trouvé </span>
 <span id="qr-result-index"> </span>
 
+<%# appel du controlelr js scanqr %>
 <div data-controller="scanqr">
   <input id="qr-result-input" data-scanqr-target="name" type="text">
 
 </div>
+
+
+<hr>
+
+<%= link_to "home", root_path %>

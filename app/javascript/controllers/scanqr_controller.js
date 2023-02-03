@@ -18,10 +18,14 @@ window.ScanQr=()=>{
 // Si index existe rediriger vers la page du produit
       if (typeof result3 !== 'undefined') {
         console.log("test id existe")
-        const baseUrl = "http://localhost:3000/produits/" // remplacer par variable
+      
+        const rootPath = window.location.origin 
+        const baseUrl =  "/produits/" 
         const parameter = encodeURIComponent(result3);
-        window.location.assign(baseUrl + parameter);
-        console.log(baseUrl + parameter)
+        const fullPath = rootPath + baseUrl + parameter;
+        
+        window.location.assign(fullPath);
+        console.log(fullPath)
       }
     },
     timeout: 10000,
@@ -35,18 +39,7 @@ export default class extends Controller {
 
     connect(){
       console.log("hello from scan qr controller")
+    
     }
   
-   /*  greet() {
-      let result = this.nameTarget.value
-      console.log(result)
-
-     // window.location.assign("http://localhost:3000/produits/");
-
-      const baseUrl = "http://localhost:3000/produits/" // remplacer par variable
-
-      const parameter = encodeURIComponent(result);
-      window.location.assign(baseUrl + parameter);
-
-    } */
 }
