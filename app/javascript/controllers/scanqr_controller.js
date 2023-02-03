@@ -15,15 +15,20 @@ window.ScanQr=()=>{
 // Envoyer index sur la vue
       document.getElementById("qr-result-input").value = result3;
 
+
+
 // Si index existe rediriger vers la page du produit
       if (typeof result3 !== 'undefined') {
         console.log("test id existe")
+
+        // to do : verifier index scanné correspond à un produit
+
       
         const rootPath = window.location.origin 
-        const baseUrl =  "/produits/" 
+        const baseUrl =  "/details?produitId=" 
         const parameter = encodeURIComponent(result3);
         const fullPath = rootPath + baseUrl + parameter;
-        
+
         window.location.assign(fullPath);
         console.log(fullPath)
       }
@@ -39,6 +44,8 @@ export default class extends Controller {
 
     connect(){
       console.log("hello from scan qr controller")
+
+      
     
     }
   
